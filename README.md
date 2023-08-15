@@ -1,3 +1,4 @@
-# MERN Starter Code
+# MERN Quick Notes
 
-Clone this repo for starter code for a comprehensive MERN app, including JWT authorization.
+Single-page Full-stack MERN app for quick note-taking. Notes are saved with user accounts.
+Includes JWT authorization.
