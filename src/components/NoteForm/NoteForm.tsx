@@ -28,7 +28,7 @@ function NoteForm({note, rows, createNote}: {note?: INote, rows?: number, create
             <label>Title</label>
             <input type="text" name="title" value={formData.title}
                    onChange={handleOnChange} required/>
-            <label>Note</label>
+            <label>Content</label>
             <textarea name="text" rows={rows || 20}
                       value={formData.text} onChange={handleOnChange} required/>
 
