@@ -1,6 +1,6 @@
 import * as notesAPI from "./notes-api";
 
-export async function create(formData: {text: string}) {
+export async function create(formData: {title: string, text: string}) {
     return await notesAPI.create(formData);
 }
 
