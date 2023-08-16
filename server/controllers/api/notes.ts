@@ -58,7 +58,7 @@ export async function deleteOne(req: Request, res: Response, next: NextFunction)
 export async function readUserOwned(req: Request, res: Response, next: NextFunction) {
     if (req.user) {
         try {
-            const notes = await Note.find({user: req.user._id});
+            const notes = await Note.find({user: req.user._id}).sort({createdAt: "desc"});
             res.json(notes);
         } catch (err) {
             console.error(err);
