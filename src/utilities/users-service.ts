@@ -3,9 +3,26 @@ import * as usersAPI from "./users-api.ts";
 import {IUser} from "../../server/interfaces.ts";
 
 
+/**
+ * Attempt to sign up a user
+ * @param userData form data to pass
+ * @returns IUser user object or null if invalid credentials
+ */
 export async function signUp(userData: UserFormData) {
     const token = await usersAPI.signUp(userData);
     localStorage.setItem("token", token);
+    return getUser();
+}
+
+/**
+ * Attempt to log-in a user
+ * @param credentials
+ * @returns IUser user object or null if invalid credentials
+ */
+export async function login(credentials: {username: string, password: string}) {
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem("token", token);
+
     return getUser();
 }
 
@@ -32,16 +49,7 @@ export function getToken() {
 }
 
 
-/**
- * Attempt to log in a user, or return null if invalid credentials.
- * @param credentials
- */
-export async function login(credentials: {username: string, password: string}) {
-    const token = await usersAPI.login(credentials);
-    localStorage.setItem("token", token);
 
-    return getUser();
-}
 
 
 /**

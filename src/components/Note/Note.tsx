@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface Note {
+export interface INote {
     title: string;
     text: string;
     _id: string;
@@ -8,7 +8,7 @@ export interface Note {
     updatedAt: string; // date string
 }
 
-function Note({note}: {note: Note}) {
+function Note({note}: {note: INote}) {
 
     return (
         <article>
@@ -22,3 +22,5 @@ function Note({note}: {note: Note}) {
         </article>
     );
 }
+
+export default Note;
