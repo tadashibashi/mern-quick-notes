@@ -4,10 +4,9 @@ import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import {IUser} from "../../interfaces";
 
-async function create(req: Request, res: Response, next: NextFunction) {
+export async function create(req: Request, res: Response, next: NextFunction) {
 
     try {
-        console.log(req.body);
         const user = await User.create(req.body);
         const token = createJWT(user);
         res.json(token);
@@ -17,7 +16,7 @@ async function create(req: Request, res: Response, next: NextFunction) {
     }
 }
 
-async function login(req: Request, res: Response, next: NextFunction) {
+export async function login(req: Request, res: Response, next: NextFunction) {
     try {
         // ensure that the fields exist
         if (!req.body.password)
@@ -44,18 +43,11 @@ async function login(req: Request, res: Response, next: NextFunction) {
 }
 
 
-
-
-async function checkToken(req: Request, res: Response, next: NextFunction) {
-    console.log("user", req.user);
+export async function checkToken(req: Request, res: Response, next: NextFunction) {
     res.json(req.exp);
 }
 
-export default {
-    create,
-    login,
-    checkToken,
-}
+
 
 function createJWT(user: mongoose.Document<unknown, {}, IUser>) {
     return jwt.sign(
