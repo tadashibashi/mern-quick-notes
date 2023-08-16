@@ -10,7 +10,10 @@ function AuthPage() {
     return (
         <div>
             {signUp ? <SignUpForm user={user} /> : <LoginForm user={user} />}
-            <a onClick={() => setSignUp(!signUp)}>{signUp ? "Already have an account? LOG IN" : "Don't have an account? SIGN UP"}</a>
+            <div className="mt-2">
+                <span>{signUp ? "Already have an account? " : "Don't have an account? "}</span>
+                <a className="link" onClick={() => setSignUp(!signUp)}>{signUp ? "LOG IN" : "SIGN UP"}</a>
+            </div>
         </div>
     );
 
