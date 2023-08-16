@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-import usersCtrl from "../../controllers/api/users";
-import requireLogin from "../../middleware/requireLogin.ts";
+import * as usersCtrl from "../../controllers/api/users";
+import requireLogin from "../../middleware/requireLogin";
 
 router.post("/", usersCtrl.create);
 router.post("/login", usersCtrl.login);
