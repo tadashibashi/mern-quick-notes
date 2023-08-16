@@ -93,6 +93,16 @@ code {
   border-radius: 1vmin;
 }
 
+.text-tiny {
+  font-size: max(1vmin, .6rem);
+}
+
+hr {
+  border-top: 1px;
+  border-color: #a1a1a1;
+  margin: 1.6vmin 4vmin;
+}
+
 p.error-message {
   color: var(--orange);
   text-align: center;

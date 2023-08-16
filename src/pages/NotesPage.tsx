@@ -29,7 +29,7 @@ function NotesPage() {
     return (
         <div>
             <h1>{userCtx.user && userCtx.user.username + "'s "}Notes</h1>
-
+            <h2>New Note</h2>
             <NoteForm createNote={createNote} />
             <div className="notes-container">
                 {notes.map(note => <Note note={note}/>)}

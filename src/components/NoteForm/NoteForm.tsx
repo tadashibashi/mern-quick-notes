@@ -1,4 +1,4 @@
-import {Note} from "../Note/Note";
+import {INote} from "../Note/Note";
 import {FormEvent, useState} from "react";
 
 interface FormData {
@@ -6,7 +6,7 @@ interface FormData {
     text: string;
 }
 
-function NoteForm({note, rows, createNote}: {note?: Note, rows?: number, createNote: (note: FormData) => void}) {
+function NoteForm({note, rows, createNote}: {note?: INote, rows?: number, createNote: (note: FormData) => void}) {
     const [formData, setFormData] = useState<FormData>({
         title: note ? note.title : "",
         text: note ? note.text : "",
@@ -24,10 +24,11 @@ function NoteForm({note, rows, createNote}: {note?: Note, rows?: number, createN
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" name="title" placeholder="Title"
-                   value={formData.title} onChange={handleOnChange} required/>
-
-            <textarea name="text" rows={rows || 20} placeholder="Note"
+            <label>Title</label>
+            <input type="text" name="title" value={formData.title}
+                   onChange={handleOnChange} required/>
+            <label>Note</label>
+            <textarea name="text" rows={rows || 20}
                       value={formData.text} onChange={handleOnChange} required/>
 
             <button type="submit">Add Note</button>

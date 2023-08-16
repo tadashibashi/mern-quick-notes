@@ -1,0 +1,18 @@
+
+.Note {
+    padding: 1vmin;
+    border-radius: 1vmin;
+    background: var(--white);
+
+    margin: 1.6vmin auto;
+
+    max-width: 600px;
+}
+
+.Note h3 {
+    margin: 0;
+}
+
+.Note .note-body {
+    padding-bottom: 1.6vmin;
+}

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import "./Note.css";
 
 export interface INote {
     title: string;
@@ -11,11 +11,12 @@ export interface INote {
 function Note({note}: {note: INote}) {
 
     return (
-        <article>
+        <article className="Note">
             <div className="note-header">
                 <h3>{note.title}</h3>
-                <p>last updated: <span className="note-date">{new Date(note.updatedAt).toString()}</span></p>
+                <p className="text-tiny">created on: <span className="note-date">{new Date(note.createdAt).toLocaleDateString()}</span></p>
             </div>
+            <hr />
             <div className="note-body">
                 <p>{note.text}</p>
             </div>
