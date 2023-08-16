@@ -11,8 +11,7 @@ function NavBar() {
 
     return (
         <nav>
-            <Link to={"/orders"}>Order History </Link>|
-            <Link to={"/orders/new"}> New Order</Link>
+            <Link to={"/notes"}>Notes </Link>|
             <Link to="" onClick={handleLogOut}>Log Out</Link>
         </nav>
     );

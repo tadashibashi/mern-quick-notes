@@ -1,6 +1,10 @@
 
-function NewOrderPage() {
-    return <div>NewOrderPage</div>;
+function NewNotePage() {
+    return (
+        <div className="NewNotePage">
+            New Note
+        </div>
+    );
 }
 
-export default NewOrderPage;
+export default NewNotePage;

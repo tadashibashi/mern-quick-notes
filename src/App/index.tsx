@@ -3,12 +3,14 @@
  */
 import {useState, createContext} from 'react'
 import {Route, Routes, useNavigate} from "react-router-dom";
-import {AuthPage, NewOrderPage, OrderHistoryPage} from "../pages";
-import './App.css';
+import {AuthPage, NewNotePage, NotesPage} from "../pages";
+
 import {NavBar} from "../components";
-import {UserFormData} from "../utilities/types.ts";
-import {IUser} from "../../server/interfaces.ts";
+import {UserFormData} from "../utilities/types";
+import {IUser} from "../../server/interfaces";
 import * as usersService from "../utilities/users-service";
+
+import './App.css';
 
 interface User {
     username: string;
@@ -34,8 +36,8 @@ function App() {
         <>
             <NavBar />
             <Routes>
-                <Route path="/orders/new" element={<NewOrderPage />} />
-                <Route path="/orders" element={<OrderHistoryPage />} />
+                <Route path="/notes/new" element={<NewNotePage />} />
+                <Route path="/notes" element={<NotesPage />} />
             </Routes>
         </>;
 
@@ -43,16 +45,21 @@ function App() {
         try {
             const user = await usersService.signUp(formData);
             setUser(user);
-            navigate("/orders");
+            navigate("/notes");
         } catch {
             console.error("Error, failed to login");
         }
     }
+
     async function login(credentials: {username: string, password: string}) {
         try {
             const user = await usersService.login(credentials);
-            setUser(user);
-            navigate("/orders");
+            if (user) {
+                setUser(user);
+                navigate("/notes");
+            }
+
+
         } catch {
             console.error("Error, failed to login");
         }
@@ -73,4 +80,4 @@ function App() {
     );
 }
 
-export default App
+export default App;
