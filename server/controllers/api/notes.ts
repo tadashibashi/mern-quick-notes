@@ -3,7 +3,10 @@ import Note from "../../models/Note";
 
 export async function createOne(req: Request, res: Response, next: NextFunction) {
     try {
-        const note = await Note.create(req.body);
+        const note = new Note(req.body);
+        note.user = req.user!._id; // user exists because middleware ensures it
+
+        await note.save();
         res.json(note);
     } catch (err) {
         console.error(err);
