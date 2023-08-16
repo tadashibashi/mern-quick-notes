@@ -48,6 +48,7 @@ export async function readOne(req: Request, res: Response, next: NextFunction) {
 export async function deleteOne(req: Request, res: Response, next: NextFunction) {
     try {
         await Note.deleteOne({_id: req.params["id"]});
+        res.json({success: true});
     } catch(err) {
         console.error(err);
         res.status(400).json({error: err});

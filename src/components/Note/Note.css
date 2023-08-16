@@ -10,6 +10,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.26);
 }
 
+.Note .delete-btn {
+    aspect-ratio: 1/1;
+    float: right;
+    background: #e77373;
+    font-size: .6vmin;
+    padding: .7vmin;
+}
+
 .Note h3 {
     margin: 0;
 }
