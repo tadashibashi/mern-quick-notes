@@ -20,6 +20,7 @@ function NoteForm({note, rows, createNote}: {note?: INote, rows?: number, create
     function handleSubmit(evt: FormEvent) {
         evt.preventDefault();
         createNote(formData);
+        setFormData({title: "", text: ""});
     }
 
     return (
