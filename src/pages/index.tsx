@@ -1,5 +1,5 @@
 import AuthPage from "./AuthPage";
-import NewOrderPage from "./NewOrderPage";
-import OrderHistoryPage from "./OrderHistoryPage";
+import NewNotePage from "./NewNotePage.tsx";
+import NotesPage from "./NotesPage.tsx";
 
-export {AuthPage, NewOrderPage, OrderHistoryPage};
+export {AuthPage, NewNotePage, NotesPage};
