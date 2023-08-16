@@ -32,11 +32,15 @@ export function getToken() {
 }
 
 
+/**
+ * Attempt to log in a user, or return null if invalid credentials.
+ * @param credentials
+ */
 export async function login(credentials: {username: string, password: string}) {
     const token = await usersAPI.login(credentials);
     localStorage.setItem("token", token);
 
-    return token;
+    return getUser();
 }
 
 
@@ -48,6 +52,9 @@ export function getUser() {
     return token ? JSON.parse(atob(token.split(".")[1])).user as IUser : null;
 }
 
+/**
+ * Get the date when a logged-in user's token expires
+ */
 export async function checkToken() {
-    return await usersAPI.checkToken();
+    return new Date(await usersAPI.checkToken());
 }
