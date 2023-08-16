@@ -8,8 +8,9 @@ export interface IUser {
 }
 
 export interface INote {
-    text: string,
-    user: mongoose.Types.ObjectId;
+    title: string;
+    text: string;
+    user: mongoose.ObjectId;
 }
 
 export type RequestUser = Omit<UserDoc, "password">;
